@@ -28,7 +28,7 @@ public class PersonTest {
 
 	@AfterMethod
 	public void shutdown() {
-	//	factory.close();
+		factory.close();
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class PersonTest {
 		session.save(person1);
 		tx.commit();
 		load(factory);
-		//session.close();
+		session.close();
 	}
 	private static void load(SessionFactory sessionFactory) {
 		System.out.println("-- loading persons --");
@@ -51,7 +51,7 @@ public class PersonTest {
 		@SuppressWarnings("unchecked")
 		List<Person> persons = session.createQuery("FROM Person").list();
 		persons.forEach(System.out::println);
-	//	session.close();
+
 	}
 
 	public static void main(String[] args) {
