@@ -7,20 +7,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Person {
-	@Override
-	public String toString() {
-		return "Person{" +
-				"id=" + id +
-				", name='" + name + '\'' +
-				'}';
-	}
-
+public class Skill {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
 	private String name;
+
+	public Skill() {
+	}
+
+	@Override
+	public String toString() {
+		return "Skill{" +
+				"name='" + name + '\'' +
+				'}';
+	}
 
 	public String getName() {
 		return name;
@@ -28,8 +30,5 @@ public class Person {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Person() {
 	}
 }
